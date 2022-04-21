@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Поиск</p>
+    <div class="container">
+
+        <form method="GET">
+
+            <div class ="col form-control ">
+                {{ filter.form }}<!-- Форму от фильтров за нас сделает django. А вот кнопку, увы придётся делать самому -->
+                <input type="submit" class="btn btn-primary" value="Find">
+            </div>
+
+
+
+        </form>
+
+
+        {% for video in filter.qs%}
+            <h5>Author video: {{x.video_author}}</h5>
+            <h5>{{x.video_date_time}}</h5>
+            <div class="ratio ratio-16x9">
+                <iframe src={{x.video.url}} title="{{x.video.caption}}" allowfullscreen></iframe>
+            </div>
+            <hr>
+        {% endfor %}
+
+
+    </div>
+
+</body>
+</html>
