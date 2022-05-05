@@ -1,9 +1,12 @@
-from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path, include
+from .views import *
+
+
+
 
 urlpatterns = [
-    path('', views.VideoList.as_view()),
-    path('search/', views.Search.as_view()),
+    path('', index),
+    path('search/', Search.as_view()),
+    # path('', index),
 
 ]
